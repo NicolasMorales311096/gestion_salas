@@ -1,0 +1,17 @@
+{% extends 'salas/base.html' %}
+
+{% block content %}
+<h2>Reservar sala</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button type="submit" class="btn">Confirmar reserva</button>
+</form>
+
+<p style="margin-top: 10px; font-size: 0.9em;">
+    * La hora de inicio se guarda automáticamente y la reserva dura como máximo 2 horas.
+</p>
+{% endblock %}

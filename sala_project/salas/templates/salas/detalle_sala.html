@@ -1,0 +1,26 @@
+{% extends 'salas/base.html' %}
+
+{% block content %}
+<h2>Detalle de la sala: {{ sala.nombre }}</h2>
+
+<p><strong>Capacidad máxima:</strong> {{ sala.capacidad_maxima }} personas</p>
+<p>
+    <strong>Estado:</strong>
+    {% if sala.disponible %}
+        <span class="badge badge-ok">Disponible</span>
+    {% else %}
+        <span class="badge badge-bad">Reservada</span>
+    {% endif %}
+</p>
+
+{% if reserva %}
+    <h3>Reserva actual</h3>
+    <p><strong>RUT:</strong> {{ reserva.rut }}</p>
+    <p><strong>Inicio:</strong> {{ reserva.hora_inicio }}</p>
+    <p><strong>Término:</strong> {{ reserva.hora_fin }}</p>
+{% else %}
+    <p>Esta sala no tiene reservas activas.</p>
+{% endif %}
+
+<a class="btn" href="{% url 'reservar_sala' %}">Reservar esta sala</a>
+{% endblock %}

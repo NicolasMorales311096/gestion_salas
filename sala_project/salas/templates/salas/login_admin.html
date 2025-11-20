@@ -1,0 +1,26 @@
+{% extends 'salas/base.html' %}
+
+{% block content %}
+<h2>Inicio de sesión · Administrador</h2>
+<p style="color:#9ca3af; font-size:0.9rem; margin-bottom: 10px;">
+    Inicia sesión con tu cuenta de administrador para gestionar salas y reservas.
+</p>
+
+{% if error %}
+    <p style="color:#f97373; font-size:0.9rem; margin-bottom: 10px;">
+        {{ error }}
+    </p>
+{% endif %}
+
+<form method="post" style="max-width: 420px; background: rgba(15,23,42,0.9); padding: 16px 18px; border-radius: 12px; border: 1px solid rgba(148,163,184,0.3);">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button type="submit" class="btn-admin" style="margin-top: 10px;">Ingresar</button>
+</form>
+
+<p style="margin-top: 12px; font-size:0.85rem; color:#9ca3af;">
+    Recuerda que solo los usuarios administradores (como <strong>admin</strong>) pueden acceder al panel de gestión.
+</p>
+{% endblock %}
