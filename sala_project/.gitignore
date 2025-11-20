@@ -1,0 +1,18 @@
+# Entorno virtual
+.venv/
+venv/
+env/
+
+# Archivos sensibles
+.env
+*.sqlite3
+
+# Archivos de Oracle exportados
+*.sql
+
+# Archivos de sistema
+__pycache__/
+*.pyc
+
+# Archivos de VSCode
+.vscode/
